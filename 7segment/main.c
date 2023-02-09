@@ -8,6 +8,7 @@ void main()
 	DDRD=0xff;
 	SET_BIT(PORTD,3);
 	DDRA=0;
+	int s=0;
 
 
 
