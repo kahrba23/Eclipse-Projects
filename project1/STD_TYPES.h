@@ -1,7 +1,3 @@
-#ifndef STD_TYPES_H_
-#define STD_TYPES_H_
-
-
 typedef unsigned char u8;
 typedef signed char s8;
 
@@ -13,16 +9,3 @@ typedef signed long int s32;
 
 typedef float f32;
 typedef double f64;
-typedef struct
-{
-	u8 com_type;
-	u8 port;
-	u8 enable_port;
-	u8 enable_pin;
-}SSD_t;
-
-
-
-#define NULL    0
-
-#endif // STD_TYPES_H_

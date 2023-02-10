@@ -1,22 +1,12 @@
-#include<avr/io.h>
-#include<util/delay.h>
+
 #include "STD_TYPES.h"
 #include "BIT_MATH.h"
+#include"DIO_interface.h"
+#include"DIO_register.h"
+#include"SSD_interface.h"
 void main()
 {
-	u8 SEVEN_S[10]={0b0111111,0b0000110,0b1011011,0b1001111,0b1100110,0b1101101,0b1111101,0b0000111,0b1111111,0b1100111};
-	DDRD=0xff;
-	SET_BIT(PORTD,3);
-	DDRA=0;
-	int s=0;
-
-
-
-
-
-
-
-
-
+	SSD_t Local_Ssd1={SSD_u8CommonCathode,DIO_u8PORTD,DIO_u8PORTC,DIO_u8PIN0 };
+	SSD_u8SetNumber(SSD_u8NUM1,&Local_Ssd1);
 
 }

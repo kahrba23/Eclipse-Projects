@@ -9,6 +9,7 @@
 #include "BIT_MATH.h"
 #include"DIO_interface.h"
 #include"DIO_register.h"
+#include"SSD_interface.h"
 u8 DIO_u8SetPinDirection(u8 Copy_u8Port,u8 Copy_u8Pin,u8 Copy_u8Direction )
 {
 	u8 Local_u8ErrorState=0;
@@ -141,4 +142,28 @@ u8 DIO_u8GetPinValue(u8 Copy_u8Port,u8 Copy_u8Pin,u8* Copy_pu8Value)
 	}
 	return Local_u8ErrorState;
 }
+u8 SSD_u8SetNumber(u8 Copy_u8Number, SSD_t*SSD)
+{
+	u8 Local_u8ErrorState=0;
+	if(SSD->com_type==SSD_u8CommonCathode)
+	{
+		DIO_u8SetPortDirection(SSD->port,DIO_u8PORT_OUTPUT);
+		DIO_u8SetPinDirection(SSD->enable_port,SSD->enable_pin,DIO_u8PIN_OUTPUT);
+		DIO_u8SetPinValue(SSD->enable_port,SSD->enable_pin,DIO_u8PIN_LOW);
+		DIO_u8SetPortValue(SSD->port,Copy_u8Number);
+	}
+	else if(SSD->com_type==SSD_u8CommonAnode)
+	{
+		DIO_u8SetPortDirection(SSD->port,DIO_u8PORT_OUTPUT);
+		DIO_u8SetPinDirection(SSD->enable_port,SSD->enable_pin,DIO_u8PIN_OUTPUT);
+		DIO_u8SetPinValue(SSD->enable_port,SSD->enable_pin,DIO_u8PIN_HIGH);
+		DIO_u8SetPortValue(SSD->port,~(Copy_u8Number));
+	}
+	else
+	{
+		 Local_u8ErrorState=1;
+	}
 
+	return Local_u8ErrorState;
+
+}
