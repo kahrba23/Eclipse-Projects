@@ -8,6 +8,6 @@ void main()
 {
 	SSD_t Local_Ssd1={SSD_u8CommonCathode,DIO_u8PORTD,DIO_u8PORTC,DIO_u8PIN0 };
 	SSD_u8SetNumber(SSD_u8NUM1,&Local_Ssd1);
-	int s=0;
+
 
 }
