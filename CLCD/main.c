@@ -22,7 +22,7 @@ void main(){
 		CLCD_voidGoToXY(1,Local_u8inc2);
 		CLCD_voidSendString("AYAT");
 		_delay_ms(2000);
-		if(Local_u8inc2<15) Local_u8inc2+=6;
+		if(Local_u8inc2<15) Local_u8inc2+=5;
 		else Local_u8inc2=3;
 		CLCD_voidSendCommand(1);
 
