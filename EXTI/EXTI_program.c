@@ -169,7 +169,7 @@ u8 EXTI_u8IntSetCallBack(u8 Copy_u8Int,void(*Copy_pvIntFunc)(void))
 	}
 	else
 	{
-		Local_ErrorState=NOK;
+		Local_ErrorState=NULL_POINTER;
 	}
 
 	return Local_ErrorState;
